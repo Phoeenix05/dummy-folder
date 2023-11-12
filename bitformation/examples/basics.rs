@@ -1,7 +1,11 @@
+use std::mem::size_of;
+
 use bitformation::prelude::*;
 
 fn main() {
-    let slice: [i16; 4] = [125, 2, 3, 4];
-    let bitf: Bitf = slice.iter().into();
-    println!("{:?}", bitf);
+    let slice = [true, false, true, false, true, false, true, false];
+    let bitf: Bitf<i8> = slice.iter().into();
+    println!("{:?}, {:08b}", bitf.0, bitf.0);
+
+    println!("bool: {}", size_of::<Bitf<i8>>())
 }
